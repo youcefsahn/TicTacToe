@@ -1,0 +1,129 @@
+/**
+ * TicTacToe
+ * 
+ * Youcef Sahnoune 
+ */
+import java.util.Scanner;
+import java.awt.*;
+import java.util.*;
+public class TicTacToe
+{
+
+    public static void main(String args[])
+    {
+        Scanner key = new Scanner(System.in);
+        System.out.println("Welcome to TicTacToe.");
+        int xSpot = 0;
+        int oSpot = 0;
+        int u = 0;
+        int j = 0;
+        int row = 0;
+        int column = 0;
+        String[][] matrix = new String[3][3];
+        matrix[0][0] = "1";
+        matrix[0][1] = "2";
+        matrix[0][2] = "3";
+        matrix[1][0] = "4";
+        matrix[1][1] = "5";
+        matrix[1][2] = "6";
+        matrix[2][0] = "7";
+        matrix[2][1] = "8";
+        matrix[2][2] = "9";
+        while(u<18)
+        {
+
+            if(u%2 == 0){
+                System.out.println("Enter a number 1-9 for where you'd like to place X.");
+                xSpot = key.nextInt();
+                if(xSpot > 6)
+                {
+                    row = 2;
+                }
+                else if(xSpot > 3)
+                {
+                    row = 1;
+                }
+                else if(xSpot >0)
+                {
+                    row = 0;
+                }
+
+                if(xSpot % 3 == 0)
+                {
+                    column = 2;
+                }
+                else if(xSpot % 3 == 2)
+                {
+                    column = 1;
+                }
+                else 
+                {
+                    column = 0;
+                }
+                matrix[row][column] = "X";
+                for(int x = 0; x<matrix.length; x++)
+                {
+                    for(int y = 0; y<matrix[0].length; y++)
+                    {
+                        System.out.print(matrix[x][y] + " ");
+
+                    }
+                    System.out.println();
+                }
+            }
+
+            else if(u%2 !=0)
+            {
+
+                System.out.println("Enter a number 1-9 for where you'd like to place O.");
+                oSpot = key.nextInt();
+                if(oSpot > 6)
+                {
+                    row = 2;
+                }
+                else if(oSpot > 3)
+                {
+                    row = 1;
+                }
+                else if(oSpot >0)
+                {
+                    row = 0;
+                }
+
+                if(oSpot% 3 == 0)
+                {
+                    column = 2;
+                }
+                else if(oSpot % 3 == 2)
+                {
+                    column = 1;
+                }
+                else 
+                {
+                    column = 0;
+                }
+                matrix[row][column] = "O";
+               
+                for(int x = 0; x<matrix.length; x++)
+                {
+                    for(int y = 0; y<matrix[0].length; y++)
+                    {
+                        System.out.print(matrix[x][y] + " ");
+                        if(oSpot==2)
+                        {
+                            matrix[0][1] = "O";
+                        }
+                    }
+                    System.out.println();
+                }
+            }
+            u++;
+        }
+
+        if(xSpot> 9)
+        {
+            System.out.println("That number is greater than 9. Please try again.");
+        }
+
+    }
+}
